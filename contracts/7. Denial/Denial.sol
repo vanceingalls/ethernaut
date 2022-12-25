@@ -22,8 +22,8 @@ contract Denial {
         uint256 amountToSend = address(this).balance / (100);
         // perform a call without checking return
         // The recipient can revert, the owner will still get their share
-        // partner.call{value: amountToSend}("");
-        // owner.call{value: amountToSend}("");
+        partner.call{value: amountToSend}("");
+        owner.call{value: amountToSend}("");
         // keep track of last withdrawal time
         timeLastWithdrawn = block.timestamp;
         withdrawPartnerBalances[partner] =
